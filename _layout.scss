@@ -1,0 +1,305 @@
+
+@use 'variables' as *;
+
+body {
+  font-family: $font-stack;
+  margin: 0;
+  background-color: $secondary-color;
+  color: $text-color;
+  animation: fadeIn 2s ease-in;
+}
+
+.header {
+  background-color: $primary-color;
+  padding: $padding;
+  text-align: center;
+}
+
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $padding;
+  padding: $padding;
+}
+
+.card {
+  background-color: white;
+  padding: $padding;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.footer {
+  text-align: center;
+  padding: $padding;
+  background-color: $primary-color;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Effet de fond animé avec un dégradé de couleurs
+body {
+  background: linear-gradient(45deg, #ffead2, #e9c4f4);
+  animation: slideInLeft 2s ease-out infinite alternate;
+}
+
+.header {
+  animation: flipIn 1s ease-out;
+}
+
+.card {
+  animation: pulse 3s infinite ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  animation: spin 1.5s ease-in-out infinite;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(197, 116, 222, 0.8);
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+footer {
+  animation: flipIn 1s ease-out;
+}
+
+// Mode fairy
+.fairy-mode {
+  background: linear-gradient(120deg, #fdf0ff, #ffe6f7, #e0f7ff);
+  animation: shimmer 30s linear infinite;
+
+  .card {
+    animation: float 3s ease-in-out infinite, glitter 2s ease-in-out infinite;
+    border: 2px dashed #801023;
+    background-color: #fff0f5;
+  }
+}
+
+@keyframes fly {
+  0% {
+    transform: translateX(-50px) translateY(50px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(150px) translateY(-50px) rotate(45deg);
+  }
+  50% {
+    transform: translateX(-100px) translateY(100px) rotate(90deg);
+  }
+  75% {
+    transform: translateX(200px) translateY(-150px) rotate(135deg);
+  }
+  100% {
+    transform: translateX(50px) translateY(50px) rotate(180deg);
+  }
+}
+
+body::after {
+  content: "🦋";
+  position: fixed;
+  font-size: 3rem;
+  animation: fly 10s ease-in-out infinite;
+  bottom: 10%;
+  left: 10%;
+  z-index: 1000;
+}
+
+body::before {
+  content: "🦋";
+  position: fixed;
+  font-size: 3rem;
+  animation: fly 8s ease-in-out infinite;
+  top: 20%;
+  right: 10%;
+  z-index: 1000;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorShift {
+  0% { background-color: #ecbdfc; }
+  50% { background-color: #89459c; }
+  100% { background-color: #f7a7d4; }
+}
+
+header {
+  animation: fadeInUp 1s ease-out forwards;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(120deg, #d4a8e3, #cb58ef);
+  border-radius: 15px;
+}
+
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 2s ease-out forwards;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  background-color: #f7a7d4;
+}
+
+footer {
+  animation: fadeInUp 3s ease-out forwards;
+  background-color: #ffb6c1;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 15px;
+  margin-top: 3rem;
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+@keyframes confetti {
+  0% { top: -10%; left: 10%; opacity: 1; transform: rotate(0deg); }
+  50% { top: 100%; left: 50%; opacity: 0.5; transform: rotate(180deg); }
+  100% { top: -10%; left: 90%; opacity: 1; transform: rotate(360deg); }
+}
+
+body::before {
+  content: "🐞";
+  position: fixed;
+  font-size: 2rem;
+  animation: confetti 3s infinite;
+  z-index: 9999;
+}
+
+@keyframes pulseText {
+  0% { color: #000000; }
+  50% { color: #ffffff; }
+  100% { color: #5c0684; }
+}
+
+.header h1, .card h2 {
+  animation: pulseText 2s infinite ease-in-out;
+}
+
+@keyframes glowBackground {
+  0% { background-color: #dea7f7; }
+  50% { background-color: #843461; }
+  100% { background-color: #a631d1; }
+}
+
+body {
+  animation: glowBackground 5s infinite ease-in-out;
+  background-size: 400% 400%;
+}
+
+@keyframes expandCard {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+.card {
+  animation: expandCard 1.5s ease-in-out forwards;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.footer p {
+  animation: scrollText 10s linear infinite;
+  white-space: nowrap;
+}
+
+
+/* Ajouté pour affichage horizontal plein écran */
+@media (min-width: 1024px) {
+  .grid-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .grid-section .card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
